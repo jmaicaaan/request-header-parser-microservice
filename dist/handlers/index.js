@@ -15,3 +15,15 @@ Object.keys(_intro).forEach(function (key) {
     }
   });
 });
+
+var _whoami = require('./whoami/whoami.handler');
+
+Object.keys(_whoami).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _whoami[key];
+    }
+  });
+});
