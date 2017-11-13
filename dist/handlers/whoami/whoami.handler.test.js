@@ -19,6 +19,7 @@ describe('whoami', function () {
       };
       var parsedAgent = 'Windows NT 6.1; Win64; x64; rv:47.0';
       server(app).get('/whoami').set('user-agent', headers['user-agent']).set('accept-language', headers['accept-language']).expect(200).end(function (err, res) {
+        console.log('res', res);
         assert.equal(res.body.language, headers['accept-language']);
         assert.equal(res.body.software, parsedAgent);
         done(err);
